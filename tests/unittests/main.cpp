@@ -3,6 +3,11 @@
 #include <QtQuickTest/quicktest.h>
 #include <CrossDebug.h>
 
+void crash() {
+    int *s = 0;
+    *s = 100;
+}
+
 int main(int argc, char *argv[])
 {
     CrossDebug::installBacktraceHandler();
@@ -10,8 +15,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     Q_UNUSED(app);
 
-    int *s = 0;
-    *s = 100;
+    crash();
 
     return 0;
 }

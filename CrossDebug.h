@@ -9,6 +9,10 @@
 #include <signal.h>
 #endif
 
+#if defined(Q_OS_WIN)
+#include "ExceptionHandler.h"
+#endif
+
 namespace CrossDebug {
 
 namespace Private {
@@ -26,11 +30,23 @@ inline void backtraceCallback(int sig) {
     exit(1);
 }
 #endif
+
+#if defined(Q_OS_WIN)
+LONG backtraceCallback(struct _EXCEPTION_POINTERS *ExInfo)
+{
+    std::cerr << filterCrash(ExInfo);
+    return EXCEPTION_EXECUTE_HANDLER;
+}
+#endif
 }
 
 inline void installBacktraceHandler() {
 #if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
     signal(SIGSEGV, Private::backtraceCallback);
+#endif
+
+#if defined(Q_OS_WIN)
+    SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)Win32FaultHandler);
 #endif
 }
 
