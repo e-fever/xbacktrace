@@ -1,7 +1,5 @@
 INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
-QML_IMPORT_PATH += $$PWD
-
 HEADERS += \
     $$PWD/CrossDebug.h
