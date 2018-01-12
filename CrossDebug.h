@@ -46,7 +46,7 @@ inline void installBacktraceHandler() {
 #endif
 
 #if defined(Q_OS_WIN)
-    SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)Win32FaultHandler);
+    SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)Private::backtraceCallback);
 #endif
 }
 
