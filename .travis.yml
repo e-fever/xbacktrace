@@ -20,7 +20,7 @@ script:
     - source qt-5.7.env
     - mkdir build
     - cd build
-    - qmake ../tests/unittests/unittests.pro
+    - qmake CONFIG+=debug ../tests/unittests/unittests.pro
     - make
     - ./unittests
 

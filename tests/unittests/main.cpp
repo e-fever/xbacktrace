@@ -11,6 +11,7 @@ void crash() {
 int main(int argc, char *argv[])
 {
     CrossDebug::installBacktraceHandler();
+    CrossDebug::attachConsole();
 
     QGuiApplication app(argc, argv);
     Q_UNUSED(app);
