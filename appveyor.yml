@@ -20,7 +20,7 @@ build_script:
   - dir %GOPATH%\bin
   - cd tests\unittests
   - qpm install
-  - qmake unittests.pro
+  - qmake CONFIG+=debug unittests.pro
   - nmake
   - dir /w
   - dir release /w

@@ -227,19 +227,25 @@ std::string showStack(HANDLE hThread, CONTEXT &c)
 
     do {
         if (!StackWalk64(imageType, process, hThread, &stackFrame, &c, NULL, SymFunctionTableAccess64, SymGetModuleBase64, NULL)) {
-            return false;
+            return std::string();
         }
 
         errorOutput += "\n" + std::to_string(frameNumber) + ": ";
         if (stackFrame.AddrPC.Offset != 0) {
-            errorOutput += Symbol(process, stackFrame.AddrPC.Offset).undecoratedName() + " -> ";
+            try {
+                errorOutput += Symbol(process, stackFrame.AddrPC.Offset).undecoratedName();
+            } catch (std::exception e) {
+                errorOutput += "(" + std::string(e.what()) + ")";
+            }
 
+            errorOutput += " -> ";
             if (SymGetLineFromAddr64(process, stackFrame.AddrPC.Offset, &offsetFromSymbol, &line))
                 errorOutput += std::string(line.FileName) + "(" + std::to_string(line.LineNumber) + ")";
         }
         else {
             errorOutput += " (No Symbols: PC == 0)";
         }
+
         ++frameNumber;
     }
     while (stackFrame.AddrReturn.Offset != 0);
