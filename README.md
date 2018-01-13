@@ -13,6 +13,22 @@ Example usage
 int main(int argc, char *argv[])
 {
     XBacktrace::enableBacktraceLogOnUnhandledException();
-};
+    int *s = 0;
+    s = 10;
+    return 0;
+}
 
 ```
+
+API
+---
+
+*XBacktrace::enableBacktraceLogOnUnhandledException()*
+
+*XBacktrace::enableBacktraceLogOnUnhandledException(callback)*
+
+TBD
+
+*XBacktrace::attachConsole()*
+
+Windows-Only API
