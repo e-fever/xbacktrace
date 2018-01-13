@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
         return 0;
     });
 
-    QGuiApplication app(argc, argv);
-    Q_UNUSED(app);
+    Q_UNUSED(argc);
+    Q_UNUSED(argv);
 
     crash1();
 
