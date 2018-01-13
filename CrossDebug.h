@@ -28,8 +28,8 @@ inline LONG backtraceCallback(struct _EXCEPTION_POINTERS *ExInfo)
 }
 
 inline void enableBacktraceLogOnUnhandledException(std::function<int()> callback) {
-#if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
 
+#if defined(Q_OS_MAC) || defined(Q_OS_LINUX)
     static std::function<int()> s_callback = callback;
 
     class Backtrace {
@@ -53,7 +53,19 @@ inline void enableBacktraceLogOnUnhandledException(std::function<int()> callback
 #endif
 
 #if defined(Q_OS_WIN)
-    SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)Private::backtraceCallback);
+    static std::function<int()> s_callback = callback;
+
+    class Backtrace {
+    public:
+
+        static LONG handler(struct _EXCEPTION_POINTERS *ExInfo)
+        {
+            std::cerr << filterCrash(ExInfo);
+            exit(s_callback());
+        }
+    };
+
+    SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)Backtrace::handler);
 #endif
 }
 

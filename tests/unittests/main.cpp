@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
         // Set exit code to zero
         return 0;
     });
-    CrossDebug::attachConsole();
 
     QGuiApplication app(argc, argv);
     Q_UNUSED(app);
