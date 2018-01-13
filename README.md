@@ -3,6 +3,10 @@ XBacktrace - Cross-platform backtrace utility
 
 Supported Platforms: Linux/Mac/Windows
 
+Credit:
+
+The Windows backtrace code is entirely based on Furkan Üzümcü's [Furkanzmc/ExceptionHandler](https://github.com/Furkanzmc/ExceptionHandler) and [Jerry Coffin's](http://stackoverflow.com/questions/15372962/in-the-handler-of-setunhandledexceptionfilter-how-to-print-a-stacktrace) code. Thanks Furkan and Jerry!
+
 
 Example usage
 -----------
