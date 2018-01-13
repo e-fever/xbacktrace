@@ -14,6 +14,8 @@ void crash1() {
 
 int main(int argc, char *argv[])
 {
+    qDebug() << "Enable backtrace";
+
     XBacktrace::enableBacktraceLogOnUnhandledException([]() {
         // Set exit code to zero
         return 0;
@@ -21,6 +23,8 @@ int main(int argc, char *argv[])
 
     Q_UNUSED(argc);
     Q_UNUSED(argv);
+
+    qDebug() << "Calling crash function";
 
     crash1();
 
