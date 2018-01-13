@@ -59,8 +59,8 @@ inline void enableBacktraceLogOnUnhandledException(std::function<int()> callback
 
         static LONG handler(struct _EXCEPTION_POINTERS *ExInfo)
         {
-            std::cerr << filterCrash(ExInfo);
-            exit(s_callback());
+            qWarning().noquote() << QString::fromStdString(filterCrash(ExInfo));
+            ExitProcess(s_callback());
         }
     };
 
