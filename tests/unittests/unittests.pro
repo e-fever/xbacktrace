@@ -14,7 +14,7 @@ DEFINES += QUICK_TEST_SOURCE_DIR=\\\"$$PWD/qmltests\\\"
 
 ROOTDIR = $$PWD/../../
 
-include($$ROOTDIR/crossdebug.pri)
+include($$ROOTDIR/xbacktrace.pri)
 
 HEADERS +=    
 

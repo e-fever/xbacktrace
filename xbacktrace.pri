@@ -2,5 +2,5 @@ INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
 HEADERS += \
-    $$PWD/CrossDebug.h \
-    $$PWD/ExceptionHandler.h
+    $$PWD/ExceptionHandler.h \
+    $$PWD/XBacktrace.h

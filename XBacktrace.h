@@ -1,5 +1,4 @@
-#ifndef CROSSDE_H
-#define CROSSDE_H
+#pragma once
 
 #include <QtCore>
 #include <functional>
@@ -15,7 +14,7 @@
 #include <windows.h>
 #endif
 
-namespace CrossDebug {
+namespace XBacktrace {
 
 namespace Private {
 
@@ -100,4 +99,3 @@ inline void attachConsole() {
 
 }
 
-#endif // CROSSDE_H

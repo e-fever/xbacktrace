@@ -1,7 +1,7 @@
 #include <QString>
 #include <QtTest>
 #include <QtQuickTest/quicktest.h>
-#include <CrossDebug.h>
+#include <XBacktrace.h>
 
 void crash2() {
     int *s = 0;
@@ -14,7 +14,7 @@ void crash1() {
 
 int main(int argc, char *argv[])
 {
-    CrossDebug::enableBacktraceLogOnUnhandledException([]() {
+    XBacktrace::enableBacktraceLogOnUnhandledException([]() {
         // Set exit code to zero
         return 0;
     });
