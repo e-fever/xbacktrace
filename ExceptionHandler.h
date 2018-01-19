@@ -285,13 +285,14 @@ public:
 void *loadModulesSymbols(HANDLE process, DWORD pid)
 {
     ModuleList modules;
+    Q_UNUSED(pid);
 
     DWORD cbNeeded;
     std::vector<HMODULE> module_handles(1);
 
-    EnumProcessModules(process, &module_handles[0], module_handles.size() * sizeof(HMODULE), &cbNeeded);
+    EnumProcessModules(process, &module_handles[0], (DWORD) module_handles.size() * sizeof(HMODULE), &cbNeeded);
     module_handles.resize(cbNeeded / sizeof(HMODULE));
-    EnumProcessModules(process, &module_handles[0], module_handles.size() * sizeof(HMODULE), &cbNeeded);
+    EnumProcessModules(process, &module_handles[0], (DWORD) module_handles.size() * sizeof(HMODULE), &cbNeeded);
 
     std::transform(module_handles.begin(), module_handles.end(), std::back_inserter(modules), GetModInfo(process));
     return modules[0].baseAddress;
