@@ -1,6 +1,8 @@
 XBacktrace - Cross-platform backtrace utility
 =============================================
 
+It is a single header library to provide a cross platform backtrace utility.
+
 Supported Platforms: Linux/Mac/Windows
 
 Credit:

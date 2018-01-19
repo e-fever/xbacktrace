@@ -28,4 +28,5 @@ linux {
 
 DISTFILES += ../../.travis.yml \
     ../../appveyor.yml \
-    ../../README.md
+    ../../README.md \
+    ../../LICENSE

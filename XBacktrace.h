@@ -1,3 +1,5 @@
+// License: Apache-2.0
+// Project: https://github.com/e-fever/xbacktrace
 #pragma once
 
 #include <QtCore>
