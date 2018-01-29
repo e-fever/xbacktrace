@@ -1,5 +1,10 @@
-// License: Apache-2.0
-// Project: https://github.com/e-fever/xbacktrace
+/*
+         Apache License
+   Version 2.0, January 2004
+http://www.apache.org/licenses/
+
+Project: https://github.com/e-fever/xbacktrace
+*/
 #pragma once
 
 #include <QtCore>
