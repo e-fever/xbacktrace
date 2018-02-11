@@ -26,6 +26,14 @@ int main(int argc, char *argv[])
 
 ```
 
+Installation
+-----
+
+```
+    $ wget https://raw.githubusercontent.com/e-fever/xbacktrace/master/XBacktrace.h
+```
+
+
 API
 ---
 
